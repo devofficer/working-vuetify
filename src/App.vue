@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <Header />
     <v-app-bar app color="#242424" dark>
       <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
       <div class="d-flex align-center">
@@ -105,14 +106,24 @@
     <v-main>
       <router-view />
     </v-main>
+    <Sidebar />
+    <Footer />
   </v-app>
 </template>
 
 <script>
+import Header from './components/layout/header/header';
+import Sidebar from './components/layout/sidebar/sidebar';
+import Footer from './components/layout/footer/footer';
+
 export default {
   name: "App",
 
-  components: {},
+  components: {
+    Header,
+    Sidebar,
+    Footer
+  },
 
   data: () => ({
     drawer: false,
