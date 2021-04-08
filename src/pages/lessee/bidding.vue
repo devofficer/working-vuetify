@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1 :class="{'h2': true, 'my-12': $vuetify.breakpoint.mdAndUp, 'mb-4': $vuetify.breakpoint.xsAndDown}">Bidding</h1>
-        
+
     <v-divider></v-divider>
 
     <v-container>
@@ -60,7 +60,7 @@
         </v-layout>
       </v-layout>
     </v-container>
-   
+
   </div>
 </template>
 
