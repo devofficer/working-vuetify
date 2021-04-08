@@ -65,80 +65,45 @@
 </template>
 
 <script>
-  export default {
+  import axios from 'axios';
 
+  export default {
     data() {
       return {
-        bids: [
-          {
-            id: 1,
-            image: "https://i.pinimg.com/236x/2e/8e/d5/2e8ed5802f5fe242872b9f24975a77ef.jpg",
-            title: "Online Auction - CWCOT",
-            address1: "380 Brainard Street",
-            address2: "Watertown, NY 13601",
-            guests: 3,
-            bedrooms: 1,
-            beds: 1,
-            baths: 1,
-            price: 1000,
-            hoursLeft: 20,
-            status: "winning"
-          },
-          {
-            id: 2,
-            image: "https://i.pinimg.com/236x/87/06/47/8706475a1a312afc0d0658df509d0401.jpg",
-            title: "Online Auction - CWCOT",
-            address1: "380 Brainard Street",
-            address2: "Watertown, NY 13601",
-            guests: 3,
-            bedrooms: 1,
-            beds: 1,
-            baths: 1,
-            price: 1000,
-            hoursLeft: 20,
-            status: "losing"
-          },
-          {
-            id: 3,
-            image: "https://i.pinimg.com/236x/2e/8e/d5/2e8ed5802f5fe242872b9f24975a77ef.jpg",
-            title: "Online Auction - CWCOT",
-            address1: "380 Brainard Street",
-            address2: "Watertown, NY 13601",
-            guests: 3,
-            bedrooms: 1,
-            beds: 1,
-            baths: 1,
-            price: 1000,
-            hoursLeft: 20,
-            status: "losing"
-          }
-        ]
+        bids: null
+      }
+    },
+
+    async created() {
+      try {
+        axios.get('/api/bidding/get').then(res => {
+          this.bids = res.data
+        });
+      }
+      catch(error){
+        this.bids = null
       }
     }
   }
 </script>
 
 <style>
-
 .bid.winning{
   border-right: 4px solid #68B73E;
 }
 .bid.losing{
   border-right: 4px solid #B73E3E;
 }
-
 .v-chip.winning{
   background: #68B73E !important;
 }
 .v-chip.losing{
   background: #B73E3E !important;
 }
-
 .v-btn.winning{
-  background: #12A7C6 !important;
-}
-.v-btn.losing{
   background: #C1C1C1 !important;
 }
-
+.v-btn.losing{
+  background: #12A7C6 !important;
+}
 </style>

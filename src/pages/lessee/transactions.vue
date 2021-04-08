@@ -1,94 +1,103 @@
 <template>
-  <div>
+  <v-container>
     <v-row class="text-center">
-      <v-container>
-        <v-col class="mb-4">
-          <h1 class="display-2 font-weight-bold mb-3">Transactions Page</h1>
-        </v-col>
+      <v-col cols="12">
+        <v-img
+          :src="require('../../assets/logo.svg')"
+          class="my-3"
+          contain
+          height="200"
+        />
+      </v-col>
 
-        <v-col class="mb-5" cols="12">
-          <v-menu
-            ref="menu1"
-            v-model="menu1"
-            :close-on-content-click="false"
-            transition="scale-transition"
-            offset-y
-            max-width="290px"
-            min-width="auto"
-          >
-            <template v-slot:activator="{ on }">
-              <v-text-field
-                v-model="dateRangeText"
-                label="Date range"
-                prepend-inner-icon="mdi-calendar"
-                readonly
-                clearable
-                outlined
-                v-on="on"
-              />
-            </template>
-            <v-date-picker v-model="date" no-title @input="menu1 = false" />
-          </v-menu>
+      <v-col class="mb-4">
+        <h1 class="display-2 font-weight-bold mb-3">
+          About Page
+        </h1>
 
-          <v-data-table
-            :headers="headers"
-            :items="transactions"
-            item-key="name"
-            class="elevation-1"
-            :search="search"
-            :custom-filter="filterOnlyCapsText"
+        <p class="subheading font-weight-regular">
+          For help and collaboration with other Vuetify developers,
+          <br>please join our online
+          <a
+            href="https://community.vuetifyjs.com"
+            target="_blank"
+          >Discord Community</a>
+        </p>
+      </v-col>
+
+      <v-col
+        class="mb-5"
+        cols="12"
+      >
+        <h2 class="headline font-weight-bold mb-3">
+          What's next?
+        </h2>
+
+        <v-row justify="center">
+          <a
+            v-for="(next, i) in whatsNext"
+            :key="i"
+            :href="next.href"
+            class="subheading mx-3"
+            target="_blank"
           >
-            <template v-slot:top>
-              <v-text-field v-model="search" label="Search" class="mx-4" />
-            </template>
-          </v-data-table>
-        </v-col>
-      </v-container>
+            {{ next.text }}
+          </a>
+        </v-row>
+      </v-col>
+
+      <v-col
+        class="mb-5"
+        cols="12"
+      >
+        <h2 class="headline font-weight-bold mb-3">
+          Important Links
+        </h2>
+
+        <v-row justify="center">
+          <a
+            v-for="(link, i) in importantLinks"
+            :key="i"
+            :href="link.href"
+            class="subheading mx-3"
+            target="_blank"
+          >
+            {{ link.text }}
+          </a>
+        </v-row>
+      </v-col>
+
+      <v-col
+        class="mb-5"
+        cols="12"
+      >
+        <h2 class="headline font-weight-bold mb-3">
+          Ecosystem
+        </h2>
+
+        <v-row justify="center">
+          <a
+            v-for="(eco, i) in ecosystem"
+            :key="i"
+            :href="eco.href"
+            class="subheading mx-3"
+            target="_blank"
+          >
+            {{ eco.text }}
+          </a>
+        </v-row>
+      </v-col>
     </v-row>
-    <Footer />
-  </div>
+  </v-container>
 </template>
 
 <script>
-import moment from "moment";
-import { sampleTransactions } from "../../data/transactions";
+  export default {
 
-export default {
-  name: "TransactionsPage",
-  title: "Transactions",
+    name: 'WatchingPage',
 
-  data: () => ({
-    dates: ["2019-09-10", "2019-09-20"],
-    search: "",
-    transactions: sampleTransactions,
-  }),
+    data: () => ({
 
-  computed: {
-    dateRangeText() {
-      return `${moment(this.dates[0]).format("MMM Do")} to ${moment(
-        this.dates[1]
-      ).format("MMM Do")}`;
-    },
-    headers() {
-      return [
-        { text: "ID", value: "id" },
-        { text: "Date", value: "createdAt" },
-        { text: "Property Type", value: "propertyType" },
-        { text: "Property Description", value: "propertyDescription" },
-        { text: "Amount", value: "amount" },
-        { text: "Status", value: "status" },
-      ];
-    },
-  },
-  methods: {
-    filterOnlyCapsText(value, search) {
-      return (
-        value != null &&
-        search != null &&
-        typeof value === "string" &&
-        value.toString().toLocaleUpperCase().indexOf(search) !== -1
-      );
-    },
-  },
-};
+    }),
+  }
 </script>
