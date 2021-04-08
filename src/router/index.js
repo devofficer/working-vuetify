@@ -4,6 +4,8 @@ import HomePage from '../pages/public/home';
 import FAQPage from '../pages/public/faq';
 import ContactPage from '../pages/public/contact';
 import PropertiesListPage from '../pages/public/properties/properties.list';
+import TermsPage from '../pages/public/terms';
+import PrivacyPage from '../pages/public/privacy';
 
 // Lessee
 import WatchingPage from '../pages/lessee/watching';
@@ -16,10 +18,17 @@ import LogoutPage from '../pages/lessee/auth/logout';
 import LoginPage from '../pages/lessee/auth/login';
 import SignUpPage from '../pages/lessee/auth/signup';
 import TransactionsPage from '../pages/lessee/transactions';
-
+import SettingsDashboardPage from '../pages/lessee/settings';
 import LesseePage from '../pages/lessee/lessee';
-import TermsPage from '../pages/public/terms';
-import PrivacyPage from '../pages/public/privacy';
+
+// Lessor
+import LessorPage from '../pages/lessor/lessor';
+import LessorDashboardPage from '../pages/lessor/dashboard';
+import LessorBiddingPage from '../pages/lessor/bidding';
+import LessorBookingPage from '../pages/lessor/bookings';
+import LessorRevenuePage from '../pages/lessor/revenue';
+import LessorListingsPage from '../pages/lessor/listings';
+
 
 Vue.use(VueRouter);
 
@@ -73,6 +82,11 @@ const routes = [
 
     children: [
       {
+        path: 'settings',
+        name: 'SettingsDashboardPage',
+        component: SettingsDashboardPage,
+      },
+      {
         path: 'watching',
         name: 'Watching',
         component: WatchingPage,
@@ -117,6 +131,43 @@ const routes = [
         name: 'NotificationSettings',
         component: NotificationSettingsPage,
       },
+    ],
+  },
+
+  // Authenticated routes
+  {
+    path: '/lessor',
+    name: 'Lessor',
+    component: LessorPage,
+
+    children: [
+      {
+        path: 'dashboard',
+        name: 'LessorDashboard',
+        component: LessorDashboardPage,
+      },
+      {
+        path: 'listings',
+        name: 'LessorListings',
+        component: LessorListingsPage,
+      },
+      {
+        path: 'bookings',
+        name: 'LessorBookings',
+        component: LessorBookingPage,
+      },
+      {
+        path: 'revenue',
+        name: 'LessorRevenue',
+        component: LessorRevenuePage,
+      },
+      {
+        path: 'bidding',
+        name: 'LessorBidding',
+        component: LessorBiddingPage,
+      },
+
+
     ],
   },
 ];
