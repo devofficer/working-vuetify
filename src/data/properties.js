@@ -83,7 +83,13 @@ export const sampleProperties = [
       'Refrigerator',
       'Stove',
     ],
-    pictures: [],
+    pictures: [
+      "https://i.pinimg.com/236x/2e/8e/d5/2e8ed5802f5fe242872b9f24975a77ef.jpg",
+      "https://i.pinimg.com/236x/87/06/47/8706475a1a312afc0d0658df509d0401.jpg",
+      "https://i.pinimg.com/236x/2e/8e/d5/2e8ed5802f5fe242872b9f24975a77ef.jpg",
+      "https://i.pinimg.com/236x/87/06/47/8706475a1a312afc0d0658df509d0401.jpg",
+      "https://i.pinimg.com/236x/2e/8e/d5/2e8ed5802f5fe242872b9f24975a77ef.jpg"
+    ],
     picture: {
       thumbnail: 'https://cdn.filepicker.io/api/file/BE7EpDKNSviVKIRUw91o',
     },
