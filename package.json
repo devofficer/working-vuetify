@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@vue-stripe/vue-stripe": "^4.1.8",
+    "@vue/cli": "^4.5.12",
     "core-js": "^3.6.5",
     "axios": "^0.21.1",
     "axios-mock-adapter": "^1.19.0",
