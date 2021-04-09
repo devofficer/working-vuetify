@@ -28,7 +28,7 @@
               inactive
               color="black"
             >
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
+              <v-list-item-title class="text-wrap">{{ item.title }}</v-list-item-title>
             </v-list-item>
           </v-col>
         </v-row>
